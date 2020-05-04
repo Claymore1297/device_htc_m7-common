@@ -20,6 +20,38 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
+
+LOCAL_SRC_FILES := \
+     libcameraservice/CameraFlashlight.cpp
+
+LOCAL_C_INCLUDES += \
+    $(LOCAL_PATH)/camera/include \
+    system/media/camera/include \
+    frameworks/av/services/camera/libcameraservice \
+    system/libfmq/include \
+    system/media/private/camera/include
+
+LOCAL_SHARED_LIBRARIES := \
+    libhardware \
+    liblog \
+    libgui \
+    libutils \
+    libcamera_client_htc \
+    libcameraservice \
+    camera.device@1.0-impl-htc_msm8960 \
+    android.hardware.camera.device@1.0 \
+    android.hardware.camera.provider@2.5 \
+    android.hardware.camera.device@3.4 \
+    android.hardware.camera.device@3.5
+
+LOCAL_MODULE := libflashlight_shim
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
 LOCAL_C_INCLUDES += \
     $(LOCAL_PATH)/camera/include \
     system/media/camera/include

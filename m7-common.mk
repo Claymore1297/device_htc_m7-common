@@ -64,6 +64,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8960 \
     libcamera_shim \
+    libflashlight_shim \
     Snap \
     libstdc++.vendor
 
